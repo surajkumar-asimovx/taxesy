@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import AccessibilityBar from "./components/AccessibilityBar";
 import TickerBar from "./components/TickerBar";
@@ -14,6 +15,26 @@ import FloatingButtons from "./components/FloatingButtons";
 
 function PortalContent() {
   const { textSize } = useLanguage();
+  const [highContrast, setHighContrast] = useState(() => {
+    try {
+      return localStorage.getItem("highContrast") === "true";
+    } catch {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("highContrast", String(highContrast));
+    } catch {
+      // Ignore storage errors
+    }
+    if (highContrast) {
+      document.documentElement.setAttribute("data-contrast", "high");
+    } else {
+      document.documentElement.setAttribute("data-contrast", "normal");
+    }
+  }, [highContrast]);
 
   return (
     <div
@@ -22,7 +43,7 @@ function PortalContent() {
         zoom: textSize === "A-" ? 0.92 : textSize === "A+" ? 1.08 : 1,
       }}
     >
-      <AccessibilityBar />
+      <AccessibilityBar highContrast={highContrast} setHighContrast={setHighContrast} />
       <TickerBar />
       <SiteHeader />
       <MainNav />
@@ -49,4 +70,5 @@ export default function App() {
     </LanguageProvider>
   );
 }
+
 

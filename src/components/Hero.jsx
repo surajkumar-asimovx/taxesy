@@ -52,12 +52,20 @@ export default function Hero() {
           {t.hero.quickStrip.map((item, index) => {
             const icons = [UserPlus, CreditCard, IndianRupee, ShieldCheck];
             const Icon = icons[index] || UserPlus;
+            const isRegister = index === 0;
+
             return (
-              <div className="quick-strip-item" key={index}>
+              <div className={`quick-strip-item${isRegister ? " qs-item-register" : ""}`} key={index}>
                 <Icon size={26} className="qs-icon" />
-                <div>
+                <div className="qs-content">
                   <div className="qs-title">{item.title}</div>
-                  <span className="qs-link">{item.link}</span>
+                  {isRegister ? (
+                    <button type="button" className="qs-btn" aria-label={item.link}>
+                      {item.link}
+                    </button>
+                  ) : (
+                    <span className="qs-link">{item.link}</span>
+                  )}
                 </div>
               </div>
             );
@@ -67,4 +75,5 @@ export default function Hero() {
     </>
   );
 }
+
 

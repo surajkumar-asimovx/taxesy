@@ -5,10 +5,10 @@ export default function WhatsNew() {
   const { t } = useLanguage();
 
   const itemMeta = [
-    { emoji: "📝", bg: "#eaf1fd" },
-    { emoji: "✅", bg: "#fdedde" },
-    { emoji: "🔗", bg: "#e6f7ee" },
-    { emoji: "🌱", bg: "#e6f7f5" },
+    { emoji: "📝", bg: "var(--blue-pale)" },
+    { emoji: "✅", bg: "var(--orange-bg)" },
+    { emoji: "🔗", bg: "var(--green-bg)" },
+    { emoji: "🌱", bg: "var(--teal-bg)" },
   ];
 
   return (

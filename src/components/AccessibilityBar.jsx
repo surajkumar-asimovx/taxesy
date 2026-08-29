@@ -1,7 +1,7 @@
 import { MoveDiagonal, Volume2, Languages } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
-export default function AccessibilityBar() {
+export default function AccessibilityBar({ highContrast, setHighContrast }) {
   const { textSize, setTextSize, language, setLanguage, t } = useLanguage();
   const sizes = ["A-", "A", "A+"];
   const languages = [
@@ -46,10 +46,16 @@ export default function AccessibilityBar() {
 
         <div className="a11y-sep" />
 
-        <button type="button" className="a11y-item">
+        <button
+          type="button"
+          className={`a11y-item hc-btn${highContrast ? " active" : ""}`}
+          aria-pressed={highContrast}
+          onClick={() => setHighContrast && setHighContrast((prev) => !prev)}
+        >
           <span className="hc-icon" aria-hidden="true" />
-          {t.a11y.highContrast}
+          {t.a11y.highContrast} {highContrast ? "(On)" : ""}
         </button>
+
 
         <div className="lang-group">
           <span className="lang-label">

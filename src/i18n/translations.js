@@ -31,9 +31,185 @@ export const translations = {
       individual: "Individual/HUF",
       company: "Company",
       nonCompany: "Non-Company",
-      taxPros: "Tax Professionals",
+      taxPros: "Tax Professionals & Others",
       downloads: "Downloads",
       help: "Help",
+      dropdowns: {
+        individual: [
+          {
+            id: "salaried",
+            label: "Salaried Employees",
+            items: [
+              "Guidance to file Tax Return",
+              "Return / Forms applicable to me",
+              "Tax slabs",
+              "Deductions on which I can get tax benefits",
+              "Assisted filing",
+              "Downloads",
+            ],
+          },
+          {
+            id: "business",
+            label: "Business/Profession",
+            items: [
+              "Guidance to file Tax Return",
+              "Return / Forms applicable to me",
+              "Tax slabs",
+              "Presumptive Taxation Scheme",
+              "Tax Audit Guidelines",
+              "Downloads",
+            ],
+          },
+          {
+            id: "senior",
+            label: "Senior / Super Senior Citizen",
+            items: [
+              "Guidance to file Tax Return",
+              "Special Benefits for Senior Citizens",
+              "Return / Forms applicable to me",
+              "Tax slabs for Senior Citizens",
+              "Assisted filing for Seniors",
+              "Downloads",
+            ],
+          },
+          {
+            id: "nri",
+            label: "Non Resident",
+            items: [
+              "Guidance to file Tax Return",
+              "DTAA (Double Tax Avoidance) Relief",
+              "Return / Forms applicable to NRIs",
+              "Tax slabs for Non-Residents",
+              "Assisted filing",
+              "Downloads",
+            ],
+          },
+          {
+            id: "huf",
+            label: "Hindu Undivided Family (HUF)",
+            items: [
+              "Guidance to file Tax Return",
+              "Return / Forms applicable to HUF",
+              "Tax slabs for HUF",
+              "Deductions & Exemptions",
+              "Assisted filing",
+              "Downloads",
+            ],
+          },
+        ],
+        company: [
+          {
+            id: "domestic",
+            label: "Domestic Company",
+            items: [
+              "Guidance to file Tax Return",
+              "ITR-6 & Applicable Forms",
+              "Corporate Tax Slabs & MAT",
+              "Advance Tax & Self Assessment",
+              "Downloads & Offline Utilities",
+            ],
+          },
+          {
+            id: "foreign",
+            label: "Foreign Company",
+            items: [
+              "Guidance to file Tax Return",
+              "Applicable Return Forms",
+              "Tax Rates & Surcharge",
+              "Transfer Pricing & DTAA",
+              "Downloads",
+            ],
+          },
+        ],
+        nonCompany: [
+          {
+            id: "partnership",
+            label: "Partnership Firm / LLP",
+            items: [
+              "Guidance to file Tax Return",
+              "ITR-5 for Firm & LLP",
+              "Tax Rates & Alternate Minimum Tax (AMT)",
+              "Remuneration & Interest to Partners",
+              "Downloads",
+            ],
+          },
+          {
+            id: "trust",
+            label: "Trust / Society / NGO",
+            items: [
+              "Guidance to file Tax Return (ITR-7)",
+              "Form 10A / 10AB Registration",
+              "Exemptions under Section 11/12",
+              "Audit Report in Form 10B/10BB",
+              "Downloads",
+            ],
+          },
+          {
+            id: "aop",
+            label: "Association of Persons (AOP) / BOI",
+            items: [
+              "Guidance to file Tax Return",
+              "Applicable Return Forms",
+              "Tax Rates & Rules",
+              "Downloads",
+            ],
+          },
+        ],
+        taxPros: [
+          {
+            id: "ca",
+            label: "Chartered Accountants (CA)",
+            items: [
+              "CA Portal Login & Registration",
+              "Client Authorization & Management",
+              "Upload Statutory Forms & Audit Reports",
+              "Digital Signature Certificate (DSC) Help",
+              "Downloads & Schemas",
+            ],
+          },
+          {
+            id: "eri",
+            label: "E-Return Intermediary (ERI)",
+            items: [
+              "ERI Registration & Guidelines",
+              "Bulk Filing Utilities",
+              "Client Filing Status",
+              "Help & Technical Specifications",
+            ],
+          },
+          {
+            id: "trp",
+            label: "Tax Return Preparer (TRP)",
+            items: [
+              "TRP Login & Assistance Service",
+              "Filing Support for Taxpayers",
+              "Resource Center & Updates",
+            ],
+          },
+        ],
+        help: [
+          {
+            id: "filing_help",
+            label: "ITR Filing Assistance",
+            items: [
+              "Step-by-step Filing Guide",
+              "How to e-Verify your Return",
+              "How to Link Aadhaar with PAN",
+              "Rectification & Updated Returns",
+            ],
+          },
+          {
+            id: "faqs",
+            label: "User Manuals & FAQs",
+            items: [
+              "Frequently Asked Questions (FAQs)",
+              "Instruction Guides for ITR 1 to 7",
+              "Video Tutorials for Taxpayers",
+              "Contact Helpdesk & Grievance",
+            ],
+          },
+        ],
+      },
     },
     hero: {
       title1: "Your Taxes. Your Nation.",
@@ -258,9 +434,185 @@ export const translations = {
       individual: "व्यक्तिगत/एचयूएफ",
       company: "कंपनी",
       nonCompany: "गैर-कंपनी",
-      taxPros: "कर पेशेवर",
+      taxPros: "कर पेशेवर और अन्य",
       downloads: "डाउनलोड",
       help: "सहायता",
+      dropdowns: {
+        individual: [
+          {
+            id: "salaried",
+            label: "वेतनभोगी कर्मचारी",
+            items: [
+              "कर रिटर्न दाखिल करने के लिए मार्गदर्शन",
+              "मेरे लिए लागू रिटर्न / फॉर्म",
+              "टैक्स स्लैब",
+              "कटौतियां जिन पर मुझे कर लाभ मिल सकता है",
+              "सहायता प्राप्त फाइलिंग",
+              "डाउनलोड",
+            ],
+          },
+          {
+            id: "business",
+            label: "व्यापार/पेशा",
+            items: [
+              "कर रिटर्न दाखिल करने के लिए मार्गदर्शन",
+              "मेरे लिए लागू रिटर्न / फॉर्म",
+              "टैक्स स्लैब",
+              "अनुमानित कराधान योजना",
+              "टैक्स ऑडिट दिशानिर्देश",
+              "डाउनलोड",
+            ],
+          },
+          {
+            id: "senior",
+            label: "वरिष्ठ / अति वरिष्ठ नागरिक",
+            items: [
+              "कर रिटर्न दाखिल करने के लिए मार्गदर्शन",
+              "वरिष्ठ नागरिकों के लिए विशेष लाभ",
+              "मेरे लिए लागू रिटर्न / फॉर्म",
+              "वरिष्ठ नागरिकों के लिए टैक्स स्लैब",
+              "वरिष्ठों के लिए सहायता प्राप्त फाइलिंग",
+              "डाउनलोड",
+            ],
+          },
+          {
+            id: "nri",
+            label: "अनिवासी (NRI)",
+            items: [
+              "कर रिटर्न दाखिल करने के लिए मार्गदर्शन",
+              "DTAA (दोहरा कर परिहार) राहत",
+              "अनिवासियों के लिए लागू रिटर्न / फॉर्म",
+              "अनिवासियों के लिए टैक्स स्लैब",
+              "सहायता प्राप्त फाइलिंग",
+              "डाउनलोड",
+            ],
+          },
+          {
+            id: "huf",
+            label: "हिंदू अविभाजित परिवार (HUF)",
+            items: [
+              "कर रिटर्न दाखिल करने के लिए मार्गदर्शन",
+              "HUF के लिए लागू रिटर्न / फॉर्म",
+              "HUF के लिए टैक्स स्लैब",
+              "कटौतियां और छूट",
+              "सहायता प्राप्त फाइलिंग",
+              "डाउनलोड",
+            ],
+          },
+        ],
+        company: [
+          {
+            id: "domestic",
+            label: "घरेलू कंपनी",
+            items: [
+              "कर रिटर्न दाखिल करने के लिए मार्गदर्शन",
+              "ITR-6 और लागू फॉर्म",
+              "कॉर्पोरेट टैक्स स्लैब और MAT",
+              "अग्रिम कर और स्व-मूल्यांकन",
+              "डाउनलोड और ऑफलाइन उपयोगिताएं",
+            ],
+          },
+          {
+            id: "foreign",
+            label: "विदेशी कंपनी",
+            items: [
+              "कर रिटर्न दाखिल करने के लिए मार्गदर्शन",
+              "लागू रिटर्न फॉर्म",
+              "कर दरें और अधिभार",
+              "ट्रांसफर प्राइसिंग और DTAA",
+              "डाउनलोड",
+            ],
+          },
+        ],
+        nonCompany: [
+          {
+            id: "partnership",
+            label: "साझेदारी फर्म / एलएलपी",
+            items: [
+              "कर रिटर्न दाखिल करने के लिए मार्गदर्शन",
+              "फर्म और एलएलपी के लिए ITR-5",
+              "कर दरें और वैकल्पिक न्यूनतम कर (AMT)",
+              "साझेदारों को पारिश्रमिक और ब्याज",
+              "डाउनलोड",
+            ],
+          },
+          {
+            id: "trust",
+            label: "ट्रस्ट / सोसायटी / एनजीओ",
+            items: [
+              "कर रिटर्न दाखिल करने के लिए मार्गदर्शन (ITR-7)",
+              "फॉर्म 10A / 10AB पंजीकरण",
+              "धारा 11/12 के तहत छूट",
+              "फॉर्म 10B/10BB में ऑडिट रिपोर्ट",
+              "डाउनलोड",
+            ],
+          },
+          {
+            id: "aop",
+            label: "व्यक्तियों का संघ (AOP) / BOI",
+            items: [
+              "कर रिटर्न दाखिल करने के लिए मार्गदर्शन",
+              "लागू रिटर्न फॉर्म",
+              "कर दरें और नियम",
+              "डाउनलोड",
+            ],
+          },
+        ],
+        taxPros: [
+          {
+            id: "ca",
+            label: "चार्टर्ड एकाउंटेंट (CA)",
+            items: [
+              "CA पोर्टल लॉगिन और पंजीकरण",
+              "ग्राहक प्राधिकरण और प्रबंधन",
+              "वैधानिक फॉर्म और ऑडिट रिपोर्ट अपलोड करें",
+              "डिजिटल हस्ताक्षर प्रमाणपत्र (DSC) सहायता",
+              "डाउनलोड और स्कीमा",
+            ],
+          },
+          {
+            id: "eri",
+            label: "ई-रिटर्न मध्यस्थ (ERI)",
+            items: [
+              "ERI पंजीकरण और दिशानिर्देश",
+              "थोक फाइलिंग उपयोगिताएं",
+              "ग्राहक फाइलिंग स्थिति",
+              "सहायता और तकनीकी विनिर्देश",
+            ],
+          },
+          {
+            id: "trp",
+            label: "टैक्स रिटर्न तैयारकर्ता (TRP)",
+            items: [
+              "TRP लॉगिन और सहायता सेवा",
+              "करदाताओं के लिए फाइलिंग समर्थन",
+              "संसाधन केंद्र और अपडेट",
+            ],
+          },
+        ],
+        help: [
+          {
+            id: "filing_help",
+            label: "आईटीआर फाइलिंग सहायता",
+            items: [
+              "चरण-दर-चरण फाइलिंग गाइड",
+              "अपने रिटर्न को ई-सत्यापित कैसे करें",
+              "आधार को पैन से कैसे लिंक करें",
+              "सुधार और अद्यतन रिटर्न",
+            ],
+          },
+          {
+            id: "faqs",
+            label: "उपयोगकर्ता नियमावली और अक्सर पूछे जाने वाले प्रश्न",
+            items: [
+              "अक्सर पूछे जाने वाले प्रश्न (FAQs)",
+              "ITR 1 से 7 के लिए निर्देश गाइड",
+              "करदाताओं के लिए वीडियो ट्यूटोरियल",
+              "हेल्पडेस्क और शिकायत से संपर्क करें",
+            ],
+          },
+        ],
+      },
     },
     hero: {
       title1: "आपका कर। आपका राष्ट्र।",
@@ -485,9 +837,185 @@ export const translations = {
       individual: "தனிநபர்/HUF",
       company: "நிறுவனம்",
       nonCompany: "நிறுவனம் அல்லாதவை",
-      taxPros: "வரி வல்லுநர்கள்",
+      taxPros: "வரி வல்லுநர்கள் & பிறர்",
       downloads: "பதிவிறக்கங்கள்",
       help: "உதவி",
+      dropdowns: {
+        individual: [
+          {
+            id: "salaried",
+            label: "சம்பளம் பெறும் ஊழியர்கள்",
+            items: [
+              "வரி அறிக்கை தாக்கல் செய்வதற்கான வழிகாட்டுதல்",
+              "எனக்கு பொருந்தக்கூடிய ரிட்டர்ன் / படிவங்கள்",
+              "வரி அடுக்குகள்",
+              "நான் வரி சலுகைகளைப் பெறக்கூடிய கழிவுகள்",
+              "உதவி தாக்கல்",
+              "பதிவிறக்கங்கள்",
+            ],
+          },
+          {
+            id: "business",
+            label: "வணிகம்/தொழில்",
+            items: [
+              "வரி அறிக்கை தாக்கல் செய்வதற்கான வழிகாட்டுதல்",
+              "எனக்கு பொருந்தக்கூடிய ரிட்டர்ன் / படிவங்கள்",
+              "வரி அடுக்குகள்",
+              "உத்தேச வரிவிதிப்பு திட்டம்",
+              "வரி தணிக்கை வழிகாட்டுதல்கள்",
+              "பதிவிறக்கங்கள்",
+            ],
+          },
+          {
+            id: "senior",
+            label: "முதியோர் / மிக மூத்த குடிமக்கள்",
+            items: [
+              "வரி அறிக்கை தாக்கல் செய்வதற்கான வழிகாட்டுதல்",
+              "மூத்த குடிமக்களுக்கான சிறப்பு சலுகைகள்",
+              "எனக்கு பொருந்தக்கூடிய ரிட்டர்ன் / படிவங்கள்",
+              "மூத்த குடிமக்களுக்கான வரி அடுக்குகள்",
+              "மூத்தவர்களுக்கான உதவி தாக்கல்",
+              "பதிவிறக்கங்கள்",
+            ],
+          },
+          {
+            id: "nri",
+            label: "வெளிநாடு வாழ் இந்தியர் (NRI)",
+            items: [
+              "வரி அறிக்கை தாக்கல் செய்வதற்கான வழிகாட்டுதல்",
+              "DTAA (இரட்டை வரி தவிர்ப்பு) நிவாரணம்",
+              "என்ஆர்ஐகளுக்கு பொருந்தக்கூடிய ரிட்டர்ன் / படிவங்கள்",
+              "என்ஆர்ஐகளுக்கான வரி அடுக்குகள்",
+              "உதவி தாக்கல்",
+              "பதிவிறக்கங்கள்",
+            ],
+          },
+          {
+            id: "huf",
+            label: "இந்து கூட்டுக் குடும்பம் (HUF)",
+            items: [
+              "வரி அறிக்கை தாக்கல் செய்வதற்கான வழிகாட்டுதல்",
+              "HUF-க்கு பொருந்தக்கூடிய ரிட்டர்ன் / படிவங்கள்",
+              "HUF-க்கான வரி அடுக்குகள்",
+              "கழிவுகள் & விலக்குகள்",
+              "உதவி தாக்கல்",
+              "பதிவிறக்கங்கள்",
+            ],
+          },
+        ],
+        company: [
+          {
+            id: "domestic",
+            label: "உள்நாட்டு நிறுவனம்",
+            items: [
+              "வரி அறிக்கை தாக்கல் செய்வதற்கான வழிகாட்டுதல்",
+              "ITR-6 & பொருந்தக்கூடிய படிவங்கள்",
+              "கார்ப்பரேட் வரி அடுக்குகள் & MAT",
+              "முன்கூட்டிய வரி & சுய மதிப்பீடு",
+              "பதிவிறக்கங்கள் & ஆஃப்லைன் பயன்பாடுகள்",
+            ],
+          },
+          {
+            id: "foreign",
+            label: "வெளிநாட்டு நிறுவனம்",
+            items: [
+              "வரி அறிக்கை தாக்கல் செய்வதற்கான வழிகாட்டுதல்",
+              "பொருந்தக்கூடிய ரிட்டர்ன் படிவங்கள்",
+              "வரி விகிதங்கள் & கூடுதல் கட்டணம்",
+              "பரிமாற்ற விலை & DTAA",
+              "பதிவிறக்கங்கள்",
+            ],
+          },
+        ],
+        nonCompany: [
+          {
+            id: "partnership",
+            label: "கூட்டாண்மை நிறுவனம் / LLP",
+            items: [
+              "வரி அறிக்கை தாக்கல் செய்வதற்கான வழிகாட்டுதல்",
+              "நிறுவனம் & LLP-க்கான ITR-5",
+              "வரி விகிதங்கள் & மாற்று குறைந்தபட்ச வரி (AMT)",
+              "கூட்டாளர்களுக்கு ஊதியம் & வட்டி",
+              "பதிவிறக்கங்கள்",
+            ],
+          },
+          {
+            id: "trust",
+            label: "அறக்கட்டளை / சங்கம் / NGO",
+            items: [
+              "வரி அறிக்கை தாக்கல் செய்வதற்கான வழிகாட்டுதல் (ITR-7)",
+              "படிவம் 10A / 10AB பதிவு",
+              "பிரிவு 11/12-ன் கீழ் விலக்குகள்",
+              "படிவம் 10B/10BB-ல் தணிக்கை அறிக்கை",
+              "பதிவிறக்கங்கள்",
+            ],
+          },
+          {
+            id: "aop",
+            label: "நபர்கள் சங்கம் (AOP) / BOI",
+            items: [
+              "வரி அறிக்கை தாக்கல் செய்வதற்கான வழிகாட்டுதல்",
+              "பொருந்தக்கூடிய ரிட்டர்ன் படிவங்கள்",
+              "வரி விகிதங்கள் & விதிகள்",
+              "பதிவிறக்கங்கள்",
+            ],
+          },
+        ],
+        taxPros: [
+          {
+            id: "ca",
+            label: "பட்டயக் கணக்காளர்கள் (CA)",
+            items: [
+              "CA போர்டல் உள்நுழைவு & பதிவு",
+              "வாடிக்கையாளர் அங்கீகாரம் & மேலாண்மை",
+              "சட்டப்பூர்வ படிவங்கள் & தணிக்கை அறிக்கைகளை பதிவேற்றவும்",
+              "டிஜிட்டல் கையொப்ப சான்றிதழ் (DSC) உதவி",
+              "பதிவிறக்கங்கள் & திட்டங்கள்",
+            ],
+          },
+          {
+            id: "eri",
+            label: "மின்-வருவாய் இடைத்தரகர் (ERI)",
+            items: [
+              "ERI பதிவு & வழிகாட்டுதல்கள்",
+              "மொத்த தாக்கல் பயன்பாடுகள்",
+              "வாடிக்கையாளர் தாக்கல் நிலை",
+              "உதவி & தொழில்நுட்ப விவரக்குறிப்புகள்",
+            ],
+          },
+          {
+            id: "trp",
+            label: "வரி ரிட்டர்ன் தயாரிப்பாளர் (TRP)",
+            items: [
+              "TRP உள்நுழைவு & உதவி சேவை",
+              "வரி செலுத்துவோருக்கான தாக்கல் ஆதரவு",
+              "வள மையம் & புதுப்பிப்புகள்",
+            ],
+          },
+        ],
+        help: [
+          {
+            id: "filing_help",
+            label: "ITR தாக்கல் உதவி",
+            items: [
+              "படிப்படியான தாக்கல் வழிகாட்டி",
+              "உங்கள் ரிட்டர்னை எவ்வாறு இ-சரிபார்ப்பது",
+              "ஆதாரை பான் உடன் எவ்வாறு இணைப்பது",
+              "திருத்தம் & புதுப்பிக்கப்பட்ட வருமானம்",
+            ],
+          },
+          {
+            id: "faqs",
+            label: "பயனர் கையேடுகள் & அடிக்கடி கேட்கப்படும் கேள்விகள்",
+            items: [
+              "அடிக்கடி கேட்கப்படும் கேள்விகள் (FAQs)",
+              "ITR 1 முதல் 7 வரையிலான வழிகாட்டிகள்",
+              "வரி செலுத்துவோருக்கான வீடியோ பயிற்சிகள்",
+              "உதவி மையம் & குறைகளை தொடர்பு கொள்ளவும்",
+            ],
+          },
+        ],
+      },
     },
     hero: {
       title1: "உங்கள் வரி. உங்கள் தேசம்.",

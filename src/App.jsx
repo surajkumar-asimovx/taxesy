@@ -12,6 +12,7 @@ import NeedHelpPanel from "./components/NeedHelpPanel";
 import SiteFooter from "./components/SiteFooter";
 import FloatingButtons from "./components/FloatingButtons";
 
+
 export default function App() {
   const [textSize, setTextSize] = useState("A");
 

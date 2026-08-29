@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import AccessibilityBar from "./components/AccessibilityBar";
 import TickerBar from "./components/TickerBar";
 import SiteHeader from "./components/SiteHeader";
@@ -12,13 +12,17 @@ import NeedHelpPanel from "./components/NeedHelpPanel";
 import SiteFooter from "./components/SiteFooter";
 import FloatingButtons from "./components/FloatingButtons";
 
-
-export default function App() {
-  const [textSize, setTextSize] = useState("A");
+function PortalContent() {
+  const { textSize } = useLanguage();
 
   return (
-    <div style={{ fontSize: textSize === "A-" ? "14px" : textSize === "A+" ? "17px" : "15px" }}>
-      <AccessibilityBar textSize={textSize} setTextSize={setTextSize} />
+    <div
+      style={{
+        fontSize: textSize === "A-" ? "13.5px" : textSize === "A+" ? "16.5px" : "15px",
+        zoom: textSize === "A-" ? 0.92 : textSize === "A+" ? 1.08 : 1,
+      }}
+    >
+      <AccessibilityBar />
       <TickerBar />
       <SiteHeader />
       <MainNav />
@@ -37,3 +41,12 @@ export default function App() {
     </div>
   );
 }
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <PortalContent />
+    </LanguageProvider>
+  );
+}
+

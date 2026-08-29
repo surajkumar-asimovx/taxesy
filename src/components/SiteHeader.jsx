@@ -1,8 +1,9 @@
 import { Search, Mic, User, ShieldCheck } from "lucide-react";
-
-const popularSearches = ["File ITR", "Check Refund Status", "Pay Tax", "Link Aadhaar", "Form 26AS"];
+import { useLanguage } from "../context/LanguageContext";
 
 export default function SiteHeader() {
+  const { t } = useLanguage();
+
   return (
     <header className="site-header">
       <div className="container">
@@ -22,21 +23,21 @@ export default function SiteHeader() {
             <circle cx="24" cy="24" r="4" fill="#ff8a1e" />
           </svg>
           <div>
-            <div className="brand-title">Income Tax Department</div>
-            <div className="brand-subtitle">Government of India</div>
+            <div className="brand-title">{t.header.brandTitle}</div>
+            <div className="brand-subtitle">{t.header.brandSubtitle}</div>
           </div>
         </div>
 
         <div className="search-wrap">
           <div className="search-bar">
             <Search size={18} className="search-icon" />
-            <input type="text" placeholder="Search for services, forms, help and more..." aria-label="Search" />
+            <input type="text" placeholder={t.header.searchPlaceholder} aria-label="Search" />
             <Mic size={18} className="mic-icon" />
-            <button type="button" className="search-btn">Search</button>
+            <button type="button" className="search-btn">{t.header.searchBtn}</button>
           </div>
           <div className="popular-searches">
-            <span className="label">Popular searches:</span>
-            {popularSearches.map((s) => (
+            <span className="label">{t.header.popularLabel}</span>
+            {t.header.popularSearches.map((s) => (
               <button key={s} type="button" className="chip">{s}</button>
             ))}
           </div>
@@ -45,14 +46,15 @@ export default function SiteHeader() {
         <div className="header-actions">
           <button type="button" className="login-btn">
             <User size={17} />
-            Login
+            {t.header.login}
           </button>
           <span className="secure-caption">
             <ShieldCheck size={13} />
-            Secure &amp; Safe Login
+            {t.header.secureCaption}
           </span>
         </div>
       </div>
     </header>
   );
 }
+

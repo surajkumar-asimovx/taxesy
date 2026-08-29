@@ -1,33 +1,39 @@
 import { ArrowRight } from "lucide-react";
-
-const items = [
-  { emoji: "📝", bg: "#eaf1fd", title: "FAQs on ITR Filing for AY 2024-25", date: "20 May 2024" },
-  { emoji: "✅", bg: "#fdedde", title: "Guide to e-Verify your Income Tax Return", date: "18 May 2024" },
-  { emoji: "🔗", bg: "#e6f7ee", title: "How to Link Aadhaar with PAN", date: "15 May 2024" },
-  { emoji: "🌱", bg: "#e6f7f5", title: "Benefits of Filing ITR Early", date: "10 May 2024" },
-];
+import { useLanguage } from "../context/LanguageContext";
 
 export default function WhatsNew() {
+  const { t } = useLanguage();
+
+  const itemMeta = [
+    { emoji: "📝", bg: "#eaf1fd" },
+    { emoji: "✅", bg: "#fdedde" },
+    { emoji: "🔗", bg: "#e6f7ee" },
+    { emoji: "🌱", bg: "#e6f7f5" },
+  ];
+
   return (
     <section className="section">
       <div className="container">
         <div className="section-head">
-          <h2>What&apos;s New</h2>
+          <h2>{t.whatsNew.title}</h2>
           <button type="button" className="view-all">
-            View All <ArrowRight size={15} />
+            {t.whatsNew.viewAll} <ArrowRight size={15} />
           </button>
         </div>
 
         <div className="whatsnew-grid">
-          {items.map(({ emoji, bg, title, date }) => (
-            <div className="wn-card" key={title}>
-              <div className="wn-thumb" style={{ background: bg }}>{emoji}</div>
-              <div className="wn-body">
-                <div className="wn-title">{title}</div>
-                <div className="wn-date">{date}</div>
+          {t.whatsNew.items.map((item, idx) => {
+            const meta = itemMeta[idx] || { emoji: "📝", bg: "#eaf1fd" };
+            return (
+              <div className="wn-card" key={idx}>
+                <div className="wn-thumb" style={{ background: meta.bg }}>{meta.emoji}</div>
+                <div className="wn-body">
+                  <div className="wn-title">{item.title}</div>
+                  <div className="wn-date">{item.date}</div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="carousel-dots">
@@ -39,3 +45,4 @@ export default function WhatsNew() {
     </section>
   );
 }
+

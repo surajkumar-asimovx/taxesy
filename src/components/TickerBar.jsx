@@ -1,28 +1,26 @@
 import { ArrowRight } from "lucide-react";
-
-const updates = [
-  "No extension of due date for filing of ITR",
-  "New e-Pay Tax service is now available",
-  "Verify your Return to avoid processing delays",
-];
+import { useLanguage } from "../context/LanguageContext";
 
 export default function TickerBar() {
+  const { t } = useLanguage();
+
   return (
     <div className="ticker-bar">
       <div className="container">
-        <span className="ticker-badge">Latest Updates</span>
+        <span className="ticker-badge">{t.ticker.badge}</span>
         <div className="ticker-items">
-          {updates.map((u, i) => (
-            <span key={u}>
+          {t.ticker.updates.map((u, i) => (
+            <span key={i}>
               {i > 0 && <span className="ticker-dot"> &bull; </span>}
               {u}
             </span>
           ))}
         </div>
         <a href="#updates" className="ticker-view-all">
-          View All Updates <ArrowRight size={15} />
+          {t.ticker.viewAll} <ArrowRight size={15} />
         </a>
       </div>
     </div>
   );
 }
+

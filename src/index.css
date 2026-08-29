@@ -239,24 +239,15 @@ a {
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
   flex-shrink: 0;
+  text-decoration: none;
 }
-.brand-emblem {
-  width: 46px;
-  height: 46px;
-  flex-shrink: 0;
-}
-.brand-title {
-  font-size: 18.5px;
-  font-weight: 800;
-  color: var(--navy);
-  line-height: 1.2;
-}
-.brand-subtitle {
-  font-size: 12.5px;
-  color: var(--text-muted);
-  font-weight: 500;
+.site-logo-img {
+  height: 54px;
+  width: auto;
+  max-width: 290px;
+  object-fit: contain;
+  display: block;
 }
 .search-wrap {
   flex: 1;
@@ -427,6 +418,7 @@ a {
   border-radius: 0 0 8px 8px;
   box-shadow: 0 14px 30px -4px rgba(11, 61, 145, 0.18), 0 6px 14px -2px rgba(0, 0, 0, 0.08);
   display: flex;
+  flex-direction: column;
   z-index: 1000;
   min-width: 620px;
   max-width: 90vw;
@@ -442,6 +434,10 @@ a {
     opacity: 1;
     transform: translateY(0);
   }
+}
+.nav-dropdown-body {
+  display: flex;
+  min-height: 210px;
 }
 .nav-dropdown-categories {
   width: 270px;
@@ -496,6 +492,7 @@ a {
 .nav-dropdown-sub-link {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 10px 14px;
   min-height: 44px;
   color: #2d3748;
@@ -512,6 +509,24 @@ a {
   font-weight: 600;
   outline: none;
 }
+.nav-dropdown-tip {
+  background: #f0f7ff;
+  border-top: 1px solid #d0e1fd;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: var(--navy);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.45;
+}
+.nav-dropdown-tip-icon {
+  flex-shrink: 0;
+  color: var(--blue-primary);
+  margin-top: 1px;
+}
+
+
 
 
 /* ---------- Hero ---------- */

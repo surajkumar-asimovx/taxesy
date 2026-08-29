@@ -1,5 +1,6 @@
 import { Search, Mic, User, ShieldCheck } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import logoImg from "../assets/logo.png";
 
 export default function SiteHeader() {
   const { t } = useLanguage();
@@ -7,26 +8,13 @@ export default function SiteHeader() {
   return (
     <header className="site-header">
       <div className="container">
-        <div className="brand">
-          <svg className="brand-emblem" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="24" cy="24" r="23" fill="#fff" stroke="#0b3d91" strokeWidth="1.5" />
-            <circle cx="24" cy="24" r="15" fill="none" stroke="#0b3d91" strokeWidth="1.2" />
-            {Array.from({ length: 24 }).map((_, i) => {
-              const angle = (i * 360) / 24;
-              const rad = (angle * Math.PI) / 180;
-              const x1 = 24 + 15 * Math.cos(rad);
-              const y1 = 24 + 15 * Math.sin(rad);
-              const x2 = 24 + 19 * Math.cos(rad);
-              const y2 = 24 + 19 * Math.sin(rad);
-              return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#0b3d91" strokeWidth="1.2" />;
-            })}
-            <circle cx="24" cy="24" r="4" fill="#ff8a1e" />
-          </svg>
-          <div>
-            <div className="brand-title">{t.header.brandTitle}</div>
-            <div className="brand-subtitle">{t.header.brandSubtitle}</div>
-          </div>
-        </div>
+        <a href="/" className="brand" aria-label="Income Tax Department e-Filing Portal Home">
+          <img
+            src={logoImg}
+            alt="Income Tax Department - e-Filing Anywhere Anytime, Government of India"
+            className="site-logo-img"
+          />
+        </a>
 
         <div className="search-wrap">
           <div className="search-bar">
@@ -57,4 +45,5 @@ export default function SiteHeader() {
     </header>
   );
 }
+
 

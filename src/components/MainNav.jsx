@@ -1,11 +1,13 @@
 import { useState, useRef, useEffect } from "react";
-import { Home, ChevronDown, ChevronRight } from "lucide-react";
+import { Home, ChevronDown, ChevronRight, Info } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import { getAcronymExplanation } from "../utils/acronyms";
 
 export default function MainNav() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [openDropdown, setOpenDropdown] = useState(null);
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
+  const [hoveredSubExplanation, setHoveredSubExplanation] = useState(null);
   const navRef = useRef(null);
 
   const navItems = [
@@ -23,11 +25,13 @@ export default function MainNav() {
     function handleClickOutside(event) {
       if (navRef.current && !navRef.current.contains(event.target)) {
         setOpenDropdown(null);
+        setHoveredSubExplanation(null);
       }
     }
     function handleKeyDown(event) {
       if (event.key === "Escape") {
         setOpenDropdown(null);
+        setHoveredSubExplanation(null);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -41,9 +45,11 @@ export default function MainNav() {
   const handleToggle = (itemId) => {
     if (openDropdown === itemId) {
       setOpenDropdown(null);
+      setHoveredSubExplanation(null);
     } else {
       setOpenDropdown(itemId);
       setActiveCategoryIndex(0);
+      setHoveredSubExplanation(null);
     }
   };
 
@@ -51,8 +57,10 @@ export default function MainNav() {
     if (hasDropdown) {
       setOpenDropdown(itemId);
       setActiveCategoryIndex(0);
+      setHoveredSubExplanation(null);
     } else {
       setOpenDropdown(null);
+      setHoveredSubExplanation(null);
     }
   };
 
@@ -64,6 +72,10 @@ export default function MainNav() {
           const dropdownData = item.dropdown ? t.nav.dropdowns?.[item.id] : null;
           const categories = dropdownData || [];
           const currentCategory = categories[activeCategoryIndex] || categories[0];
+
+          // Compute acronym explanation for plain-language assistance (GIGW 3.0 / Senior friendly)
+          const categoryExplanation = currentCategory ? getAcronymExplanation(currentCategory.label, language) : null;
+          const activeExplanation = hoveredSubExplanation || categoryExplanation;
 
           return (
             <div
@@ -88,42 +100,76 @@ export default function MainNav() {
                   className="nav-dropdown-menu"
                   role="menu"
                   aria-label={`${item.label} Menu`}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseLeave={() => {
+                    setOpenDropdown(null);
+                    setHoveredSubExplanation(null);
+                  }}
                 >
-                  <div className="nav-dropdown-categories" role="group" aria-label="Categories">
-                    {categories.map((cat, catIdx) => (
-                      <button
-                        key={cat.id || catIdx}
-                        type="button"
-                        className={`nav-dropdown-cat-btn${activeCategoryIndex === catIdx ? " active" : ""}`}
-                        onMouseEnter={() => setActiveCategoryIndex(catIdx)}
-                        onFocus={() => setActiveCategoryIndex(catIdx)}
-                        onClick={() => setActiveCategoryIndex(catIdx)}
-                        role="menuitem"
-                        aria-current={activeCategoryIndex === catIdx ? "true" : undefined}
-                      >
-                        <span>{cat.label}</span>
-                        <ChevronRight size={16} className="cat-arrow" />
-                      </button>
-                    ))}
+                  <div className="nav-dropdown-body">
+                    <div className="nav-dropdown-categories" role="group" aria-label="Categories">
+                      {categories.map((cat, catIdx) => {
+                        const explanation = getAcronymExplanation(cat.label, language);
+                        return (
+                          <button
+                            key={cat.id || catIdx}
+                            type="button"
+                            className={`nav-dropdown-cat-btn${activeCategoryIndex === catIdx ? " active" : ""}`}
+                            onMouseEnter={() => {
+                              setActiveCategoryIndex(catIdx);
+                              setHoveredSubExplanation(null);
+                            }}
+                            onFocus={() => {
+                              setActiveCategoryIndex(catIdx);
+                              setHoveredSubExplanation(null);
+                            }}
+                            onClick={() => {
+                              setActiveCategoryIndex(catIdx);
+                              setHoveredSubExplanation(null);
+                            }}
+                            role="menuitem"
+                            aria-current={activeCategoryIndex === catIdx ? "true" : undefined}
+                            title={explanation || cat.label}
+                          >
+                            <span>{cat.label}</span>
+                            <ChevronRight size={16} className="cat-arrow" />
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    <div className="nav-dropdown-items" role="group" aria-label="Services & Resources">
+                      {currentCategory?.items?.map((subItem, subIdx) => {
+                        const subExplanation = getAcronymExplanation(subItem, language);
+                        return (
+                          <a
+                            key={subIdx}
+                            href="#"
+                            className="nav-dropdown-sub-link"
+                            role="menuitem"
+                            title={subExplanation || subItem}
+                            onMouseEnter={() => setHoveredSubExplanation(subExplanation)}
+                            onMouseLeave={() => setHoveredSubExplanation(null)}
+                            onFocus={() => setHoveredSubExplanation(subExplanation)}
+                            onBlur={() => setHoveredSubExplanation(null)}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setOpenDropdown(null);
+                              setHoveredSubExplanation(null);
+                            }}
+                          >
+                            <span>{subItem}</span>
+                          </a>
+                        );
+                      })}
+                    </div>
                   </div>
 
-                  <div className="nav-dropdown-items" role="group" aria-label="Services & Resources">
-                    {currentCategory?.items?.map((subItem, subIdx) => (
-                      <a
-                        key={subIdx}
-                        href="#"
-                        className="nav-dropdown-sub-link"
-                        role="menuitem"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setOpenDropdown(null);
-                        }}
-                      >
-                        {subItem}
-                      </a>
-                    ))}
-                  </div>
+                  {activeExplanation && (
+                    <div className="nav-dropdown-tip" role="note" aria-live="polite">
+                      <Info size={16} className="nav-dropdown-tip-icon" />
+                      <span>{activeExplanation}</span>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -133,5 +179,6 @@ export default function MainNav() {
     </nav>
   );
 }
+
 
 
